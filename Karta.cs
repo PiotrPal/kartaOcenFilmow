@@ -13,6 +13,30 @@ namespace kartaOcenFilmow {
         }
 
         List<float> oceny;
+        private string _nazwa;
+        //ublic string Nazwa;
+
+        //wlasciwosc
+        public string Nazwa {
+            get {
+                return _nazwa.ToUpper();
+            }
+            set {
+                if (!string.IsNullOrWhiteSpace(value)) {
+                    if (_nazwa != value) {
+                        ZmianaNazwyEventArgs args = new ZmianaNazwyEventArgs();
+                        args.IstniejacaNazwa = _nazwa;
+                        args.NowaNazwa = value;
+                        
+                        ZmianaNazwy(this, args); 
+                    }
+                    _nazwa = value;
+                }
+            }
+        }
+
+        //Event(zdarzeznie)
+        public event ZmianaNazwyDelegatDelegate ZmianaNazwy;
 
         /// <summary>
         /// Dodanie nowej oceny do listy ocen
