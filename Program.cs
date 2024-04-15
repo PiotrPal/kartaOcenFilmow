@@ -65,11 +65,13 @@ namespace kartaOcenFilmow {
             //kolejne
 
             Karta karta = new Karta();
-            karta.ZmianaNazwy += new ZmianaNazwyDelegatDelegate(KiedyZmianaNazwy);
+            karta.ZmianaNazwy += KiedyZmianaNazwy; //kompilator is smart
             karta.ZmianaNazwy += new ZmianaNazwyDelegatDelegate(KiedyZmianaNazwy2);
             karta.ZmianaNazwy += new ZmianaNazwyDelegatDelegate(KiedyZmianaNazwy3);
             karta.ZmianaNazwy += new ZmianaNazwyDelegatDelegate(KiedyZmianaNazwy3); //popdinamy x2
             karta.ZmianaNazwy -= new ZmianaNazwyDelegatDelegate(KiedyZmianaNazwy3); //odpinamy 
+            
+
             karta.Nazwa = "karta Mariusza";
             karta.Nazwa = "karta debila";
             Console.WriteLine(karta.Nazwa);
@@ -77,16 +79,16 @@ namespace kartaOcenFilmow {
             Console.ReadKey();
         }
 
-        private static void KiedyZmianaNazwy3(string oldName, string newName) {
+        private static void KiedyZmianaNazwy3(object sender, ZmianaNazwyEventArgs args) {
             Console.WriteLine("-----------------------");
         }
 
-        private static void KiedyZmianaNazwy2(string oldName, string newName) {
+        private static void KiedyZmianaNazwy2(object sender, ZmianaNazwyEventArgs args) {
             Console.WriteLine("**********************");
         }
 
-        private static void KiedyZmianaNazwy(string oldName, string newName) {
-            Console.WriteLine($"Zmiana nazwy z {oldName} na {newName}");
+        private static void KiedyZmianaNazwy(object sender, ZmianaNazwyEventArgs args) {
+            Console.WriteLine($"Zmiana nazwy z {args.IstniejacaNazwa} na {args.NowaNazwa}");
         }
     }
 }

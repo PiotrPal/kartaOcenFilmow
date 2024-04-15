@@ -5,5 +5,5 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace kartaOcenFilmow {
-        public delegate void ZmianaNazwyDelegatDelegate(string oldName, string newName);
+        public delegate void ZmianaNazwyDelegatDelegate(object sender, ZmianaNazwyEventArgs args);
 }

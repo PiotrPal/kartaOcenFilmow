@@ -24,15 +24,19 @@ namespace kartaOcenFilmow {
             set {
                 if (!string.IsNullOrWhiteSpace(value)) {
                     if (_nazwa != value) {
-                        ZmianaNazwy(_nazwa, value); 
+                        ZmianaNazwyEventArgs args = new ZmianaNazwyEventArgs();
+                        args.IstniejacaNazwa = _nazwa;
+                        args.NowaNazwa = value;
+                        
+                        ZmianaNazwy(this, args); 
                     }
                     _nazwa = value;
                 }
             }
         }
 
-        //Delegat
-        public ZmianaNazwyDelegatDelegate ZmianaNazwy;
+        //Event(zdarzeznie)
+        public event ZmianaNazwyDelegatDelegate ZmianaNazwy;
 
         /// <summary>
         /// Dodanie nowej oceny do listy ocen

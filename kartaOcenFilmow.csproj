@@ -49,6 +49,7 @@
     <Compile Include="Wiadomosc.cs" />
     <Compile Include="Wypisz.cs" />
     <Compile Include="ZmianaNazwyDelegat.cs" />
+    <Compile Include="ZmianaNazwyEventArgs.cs" />
     <Compile Include="Zwierze.cs" />
   </ItemGroup>
   <ItemGroup>
