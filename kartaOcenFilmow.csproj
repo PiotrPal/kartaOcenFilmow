@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dziedziczenie.cs" />
+    <Compile Include="IKartaPodstawowa.cs" />
     <Compile Include="Karta.cs" />
+    <Compile Include="KartaPodstawowa.cs" />
+    <Compile Include="KartaStatystyki.cs" />
+    <Compile Include="LepszaKarta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wiadomosc.cs" />
