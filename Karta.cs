@@ -13,6 +13,7 @@ namespace kartaOcenFilmow {
         }
 
         protected List<float> oceny;
+
         
 
         /// <summary>

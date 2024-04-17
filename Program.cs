@@ -4,15 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kartaOcenFilmow { 
-    internal class Program { 
+namespace kartaOcenFilmow {
+    internal class Program {
         static void Main(string[] args) {
-            
+
             IKartaPodstawowa karta = UtworzKarte();
             karta.AddOceny(5);
             karta.AddOceny(6);
             karta.AddOceny(2);
-            karta.AddOceny(3);        
+            karta.AddOceny(3);
+
+
+            Karta karta2 = new Karta();
+            karta2.ZmianaNazwy += KiedyZmianaNazwy;
+            Console.WriteLine("Podaj nazwe karty: ");
+
+            try {
+                karta2.Nazwa = Console.ReadLine();
+            } catch (ArgumentException ex) {
+                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.StackTrace);//danger
+                Console.WriteLine("");
+                // throw;
+            }  catch (NullReferenceException) {
+                Console.WriteLine("Cos nie pyklo :( ");
+            } catch (Exception) {
+                Console.WriteLine("Cos bardzo nie pyklo :(( ");
+            }
+
+            //karta2.Nazwa = "siema";
+            //karta2.Nazwa = null;
 
             KartaStatystyki statystyki = karta.ObliczStatystyki();
 
@@ -91,7 +112,7 @@ namespace kartaOcenFilmow {
 
 
         //karta.Nazwa = "karta Mariusza";
-        //karta.Nazwa = "karta debila";
+        //karta.Nazwa = "karta Marka";
         //Console.WriteLine(karta.Nazwa);
 
         //Console.ReadKey();
