@@ -51,6 +51,7 @@
     <Compile Include="LepszaKarta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Throw.cs" />
     <Compile Include="Wiadomosc.cs" />
     <Compile Include="Wypisz.cs" />
     <Compile Include="ZmianaNazwyDelegat.cs" />
